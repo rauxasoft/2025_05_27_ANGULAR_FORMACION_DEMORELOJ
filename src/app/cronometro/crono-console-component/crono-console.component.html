@@ -1,9 +1,20 @@
 <div>
   <div class="crono-container">
-    <div class="crono-tiempo" data-testid="crono-tiempo">{{ getDisplay() }}</div>
+
+    <div class="crono-tiempo" data-testid="crono-tiempo">
+      @if(config.formatoTiempo === 'completo'){
+        {{ getDisplay() }}
+      } @else {
+        {{ cronoEngine.totalSegundos() }}
+      }
+    </div>
 
     <div class="crono-datos">
-      <div class="sentido" data-testid="crono-sentido">{{ cronoEngine.sentido() }}</div>
+      @if(config.mostrarSentido){
+        <div class="sentido" data-testid="crono-sentido">{{ cronoEngine.sentido() }}</div>
+      }
+      
+      @if(config.mostrarEstado){
       <div class="estado"
            data-testid="crono-estado"
            [class.running]="cronoEngine.estado() === 'RUNNING'"
@@ -11,52 +22,55 @@
            [class.stopped]="cronoEngine.estado() === 'STOPPED'">
         {{ cronoEngine.estado() }}
       </div>
+      }
     </div>
   </div>
 
   <div>
+    @if(config.mostrarBotones){
     <div class="grupoBotones">
       <button [disabled]="cronoEngine.estado() !== 'STOPPED'"
               class="btn-start"
               data-testid="btn-start"
               (click)="cronoEngine.start()">
-        START
+        {{ config.botones.start }}
       </button>
 
       <button [disabled]="cronoEngine.estado() !== 'RUNNING'"
               class="btn-pause"
               data-testid="btn-pause"
               (click)="cronoEngine.pause()">
-        PAUSE
+        {{ config.botones.pause }}
       </button>
 
       <button [disabled]="cronoEngine.estado() !== 'PAUSED'"
               class="btn-resume"
               data-testid="btn-resume"
               (click)="cronoEngine.resume()">
-        RESUME
+        {{ config.botones.resume }}
       </button>
 
       <button [disabled]="cronoEngine.estado() === 'STOPPED' || cronoEngine.sentido() === 'UP'"
               class="btn-up"
               data-testid="btn-up"
               (click)="cronoEngine.up()">
-        UP
+        {{ config.botones.up }}
       </button>
 
       <button [disabled]="cronoEngine.estado() === 'STOPPED' || cronoEngine.sentido() === 'DOWN'"
               class="btn-down"
               data-testid="btn-down"
               (click)="cronoEngine.down()">
-        DOWN
+        {{ config.botones.down }}
       </button>
 
       <button [disabled]="cronoEngine.estado() === 'STOPPED'"
               class="btn-reset"
               data-testid="btn-reset"
               (click)="cronoEngine.reset()">
-        RESET
+        {{ config.botones.reset }}
       </button>
     </div>
+    }
   </div>
 </div>

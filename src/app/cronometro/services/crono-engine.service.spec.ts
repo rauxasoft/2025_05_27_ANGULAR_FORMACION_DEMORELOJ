@@ -1,4 +1,4 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 import { CronoEngineService } from './crono-engine.service';
 

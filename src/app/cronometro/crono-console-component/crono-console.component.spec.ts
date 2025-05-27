@@ -18,13 +18,14 @@ describe('CronoConsoleComponent', () => {
     fixture = TestBed.createComponent(CronoConsoleComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(CronoEngineService);
+
     fixture.detectChanges();
   });
 
   it('debe mostrar el tiempo en pantalla al hacer start()', fakeAsync(() => {
     // Ejecutamos el cronómetro
     service.start();
-    fixture.detectChanges();
+    //fixture.detectChanges();
 
     // Avanzamos el tiempo
     tick(1500);

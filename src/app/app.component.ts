@@ -1,6 +1,7 @@
 import { Component, effect, inject } from '@angular/core';
 import { CronoConsoleComponent } from './cronometro/crono-console-component/crono-console.component';
 import { CronoEngineService } from './cronometro/services/crono-engine.service';
+import { CronoConsoleConfig } from './cronometro/crono-console-component/crono-console-config';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,24 @@ import { CronoEngineService } from './cronometro/services/crono-engine.service';
 export class AppComponent {
 
   cronoEngine = inject(CronoEngineService);
+
+  config1: CronoConsoleConfig = {
+    formatoTiempo: 'completo',
+    mostrarBotones: false,
+    mostrarEstado: false,
+    mostrarSentido: false
+  }
+
+    config2: CronoConsoleConfig = {
+    formatoTiempo: 'completo',
+    mostrarBotones: true,
+    mostrarEstado: false,
+    mostrarSentido: false,
+    botones: {
+      up: "1",
+      down: "-1"
+    }
+  }
 
   constructor(){
     effect(() => console.log(this.cronoEngine.estado()));  
