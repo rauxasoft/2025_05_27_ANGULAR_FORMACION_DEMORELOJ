@@ -1,4 +1,4 @@
-import { Component, inject, input, InputSignal, Signal } from '@angular/core';
+import { Component, computed, inject, input, InputSignal, Signal } from '@angular/core';
 import { CronoEngineService } from '../services/crono-engine.service';
 import { CronoConsoleConfig } from './crono-console-config';
 
@@ -13,8 +13,8 @@ export class CronoConsoleComponent {
   cronoEngine = inject(CronoEngineService);
   cronoConsoleConfig: InputSignal<CronoConsoleConfig | undefined> = input<CronoConsoleConfig>();
 
-  get config(): Required<CronoConsoleConfig> {
-
+  readonly config = computed(():Required<CronoConsoleConfig> => {
+  
     const base = this.cronoConsoleConfig() ?? {};
 
     return {
@@ -32,7 +32,14 @@ export class CronoConsoleComponent {
         ...(this.cronoConsoleConfig()?.botones ?? {})
       }
     }
+
+  });
+
+  /*
+  get config(): Required<CronoConsoleConfig> {
+
   }
+*/
 
   getDisplay(){
     const totalSegundos = this.cronoEngine?.totalSegundos() ?? 0;
