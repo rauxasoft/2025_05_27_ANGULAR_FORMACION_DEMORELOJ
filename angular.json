@@ -91,6 +91,39 @@
           }
         }
       }
+    },
+    "supercrono": {
+      "projectType": "library",
+      "root": "projects/supercrono",
+      "sourceRoot": "projects/supercrono/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/supercrono/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/supercrono/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/supercrono/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/supercrono/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

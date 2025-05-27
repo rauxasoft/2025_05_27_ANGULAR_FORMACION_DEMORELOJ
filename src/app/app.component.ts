@@ -3,6 +3,7 @@ import { CronoConsoleComponent } from './cronometro/crono-console-component/cron
 import { CronoEngineService } from './cronometro/services/crono-engine.service';
 import { CronoConsoleConfig } from './cronometro/crono-console-component/crono-console-config';
 
+
 @Component({
   selector: 'app-root',
   imports: [CronoConsoleComponent],
@@ -16,9 +17,9 @@ export class AppComponent {
   config1: CronoConsoleConfig = {
     formatoTiempo: 'completo',
     mostrarBotones: false,
-    mostrarEstado: false,
-    mostrarSentido: false
-  }
+    mostrarEstado: true,
+    mostrarSentido: true
+  } 
 
     config2: CronoConsoleConfig = {
     formatoTiempo: 'completo',
@@ -36,6 +37,7 @@ export class AppComponent {
   }
 
 }
+
 /*
 
 Consideraciones

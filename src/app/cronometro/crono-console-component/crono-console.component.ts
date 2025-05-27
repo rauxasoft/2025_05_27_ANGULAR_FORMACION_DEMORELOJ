@@ -35,12 +35,6 @@ export class CronoConsoleComponent {
 
   });
 
-  /*
-  get config(): Required<CronoConsoleConfig> {
-
-  }
-*/
-
   getDisplay(){
     const totalSegundos = this.cronoEngine?.totalSegundos() ?? 0;
     const horas = ("0" + Math.floor(totalSegundos / 3600)).slice(-2);

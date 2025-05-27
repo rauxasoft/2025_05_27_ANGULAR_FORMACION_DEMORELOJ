@@ -5,18 +5,23 @@ import { Injectable, signal, computed } from '@angular/core';
 })
 export class CronoEngineService {
   
+  private _velocidad = signal<number>(1000);
   private intervalId: any = null;
   private _totalSeconds = signal(0);
   private _estado = signal<'STOPPED' | 'RUNNING' | 'PAUSED'>('STOPPED');
   private _sentido = signal<number>(1);
-  
-  // totalSegundos = computed(() => this._totalSeconds());
-  // estado = computed(() => this._estado());
-  // sentido = computed(() => this._sentido() === 1 ? 'UP' : 'DOWN');
 
+  velocidad = this._velocidad.asReadonly();
   totalSegundos = this._totalSeconds.asReadonly();
   estado = this._estado.asReadonly();
   sentido = computed(() => this._sentido() === 1 ? 'UP' : 'DOWN');
+  
+  setVelocidad(velocidad: number){
+    this._velocidad.set(velocidad);
+    if(this._estado() === 'RUNNING'){
+      this.resume();
+    }
+  }
 
   start() {
     clearInterval(this.intervalId);
@@ -39,7 +44,7 @@ export class CronoEngineService {
       } else {
         this._totalSeconds.update(ts => ts + this._sentido());
       }
-    }, 500);
+    }, this._velocidad());
   }
   
   reset() {

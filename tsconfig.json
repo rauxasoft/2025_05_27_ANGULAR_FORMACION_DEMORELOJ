@@ -16,6 +16,11 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
+    "paths": {
+      "supercrono": [
+        "./dist/supercrono"
+      ]
+    },
     "module": "ES2022"
   },
   "angularCompilerOptions": {
