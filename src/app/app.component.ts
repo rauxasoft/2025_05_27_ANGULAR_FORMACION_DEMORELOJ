@@ -2,11 +2,12 @@ import { Component, effect, inject } from '@angular/core';
 import { CronoConsoleComponent } from './cronometro/crono-console-component/crono-console.component';
 import { CronoEngineService } from './cronometro/services/crono-engine.service';
 import { CronoConsoleConfig } from './cronometro/crono-console-component/crono-console-config';
+import { PruebasCronoPoolServiceComponent } from './pruebas-crono-pool-service/pruebas-crono-pool-service.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [CronoConsoleComponent],
+  imports: [CronoConsoleComponent, PruebasCronoPoolServiceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

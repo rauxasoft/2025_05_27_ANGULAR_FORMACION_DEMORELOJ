@@ -1,10 +1,10 @@
 <app-crono-console [cronoConsoleConfig]="config1"></app-crono-console>
-<hr>
-<app-crono-console [cronoConsoleConfig]="config2"></app-crono-console>
-<hr>
 <h2>Lectura del tiempo en AppComponent: {{ cronoEngine.totalSegundos() }}</h2>
 <h2>Velocidad: {{ cronoEngine.velocidad() }}</h2>
 <button (click)="cronoEngine.setVelocidad(100)">100</button>
 <button (click)="cronoEngine.setVelocidad(500)">500</button>
 <button (click)="cronoEngine.setVelocidad(1000)">1000</button>
 <button (click)="cronoEngine.setVelocidad(2000)">2000</button>
+<hr>
+<h2>Pruebas CronoPoolService</h2>
+<app-pruebas-crono-pool-service/>

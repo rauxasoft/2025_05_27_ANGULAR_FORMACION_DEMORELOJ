@@ -1,0 +1,54 @@
+.estado.running {
+  color: green;
+}
+
+.estado.paused {
+  color: orange;
+}
+
+.estado.stopped {
+  color: red;
+}
+
+.crono-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: sans-serif;
+}
+  
+.crono-tiempo {
+  font-size: 8rem;
+  font-weight: bold;
+}
+  
+.crono-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+/* Botones */
+button{
+  width: 80px;
+  margin: 2px;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  color: white;
+  background-color:rgb(4, 50, 52);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.5rem;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.grupoBotones{
+  width: 100%;
+  margin-bottom: 2px;
+}

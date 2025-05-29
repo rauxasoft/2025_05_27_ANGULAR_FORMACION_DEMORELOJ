@@ -3,6 +3,7 @@ import { Injectable, signal, computed } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CronoEngineService {
   
   private _velocidad = signal<number>(1000);
