@@ -21,8 +21,8 @@
             <td class="estado"
                 [class.running]="entry[1].estado() === 'RUNNING'"
                 [class.paused] ="entry[1].estado() === 'PAUSED'"
-                [class.stopped]="entry[1].estado() === 'STOPPED'"
-           >{{entry[1].estado()}}
+                [class.stopped]="entry[1].estado() === 'STOPPED'">
+                {{entry[1].estado()}}
             </td>
             <td>{{entry[1].sentido()}}</td>
             <td>{{entry[1].velocidad()}}</td>
@@ -34,14 +34,13 @@
             <td><button [disabled]="entry[1].estado() === 'STOPPED' || entry[1].sentido() === 'DOWN'" class="btn-down"(click)="entry[1].down()">DOWN</button></td>
             <td><button [disabled]="entry[1].estado() === 'STOPPED'"class="btn-reset"(click)="entry[1].reset()">RESET</button></td>
             <td><button (click)="cronoPoolService.deleteById(entry[0])">DELETE</button></td>
-            <td><button (click)="entry[1].setVelocidad(100)">100</button></td>
-            <td><button (click)="entry[1].setVelocidad(500)">500</button></td>
-            <td><button (click)="entry[1].setVelocidad(1000)">1000</button></td>
+            <td><button class="botonTiempo" (click)="entry[1].setVelocidad(100)">100</button></td>
+            <td><button class="botonTiempo" (click)="entry[1].setVelocidad(500)">500</button></td>
+            <td><button class="botonTiempo" (click)="entry[1].setVelocidad(1000)">1000</button></td>
         </tr>
     }
     </tbody>
 </table>
-
 
 <button (click)="addCrono()">Add Crono</button>
 <button (click)="cronoPoolService.deleteAll()">Delete All</button>
