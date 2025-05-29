@@ -9,8 +9,8 @@ export class CronoPoolService {
   private _pool = signal(new Map<number, CronoEngineService>());
   readonly poolSignal = this._pool.asReadonly();
 
-  create() : number{
-    let maxId = this._pool().size > 0 ? Math.max(...this._pool().keys()) : 1;
+  create(): number{
+    let maxId = this._pool().size > 0 ? Math.max(...this._pool().keys()) : 0;
     ++maxId;
     const cronoEngineService = new CronoEngineService();
     const nuevoMapa = new Map(this._pool());

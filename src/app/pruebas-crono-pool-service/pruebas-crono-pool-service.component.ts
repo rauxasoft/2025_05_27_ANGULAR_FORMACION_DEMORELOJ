@@ -13,14 +13,6 @@ export class PruebasCronoPoolServiceComponent {
   
   poolEntries = computed(() => [...this.cronoPoolService.poolSignal().entries()]);
 
-  constructor(){
-    effect(() => {
-      for (const [id, instancia] of this.poolEntries()){
-        console.log('ID: ' , id, 'Instancia: ', instancia.estado());
-      }
-    });
-  }
-
   addCrono(): void {
     const id = this.cronoPoolService.create();
     console.log("creado el crono " + id);
